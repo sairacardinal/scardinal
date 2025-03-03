@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CRM Reports</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">CRM Reports</h1>
+        <p><strong>Total Customers:</strong> {{ total_customers }}</p>
+
+        <h2>Customers by Company</h2>
+        <table class="table">
+            <tr>
+                <th>Company</th>
+                <th>Number of Customers</th>
+            </tr>
+            {% for company, count in companies %}
+            <tr>
+                <td>{{ company }}</td>
+                <td>{{ count }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Recently Added Customers</h2>
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Company</th>
+                <th>Date Added</th>
+            </tr>
+            {% for customer in recent_customers %}
+            <tr>
+                <td>{{ customer.name }}</td>
+                <td>{{ customer.email }}</td>
+                <td>{{ customer.company }}</td>
+                <td>{{ customer.date_added }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Dashboard</a>
+    </div>
+</body>
+</html>
