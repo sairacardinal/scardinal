@@ -1,3 +1,8 @@
 flask
-requests
+flask-bcrypt
+flask-login
+flask-sqlalchemy
 gunicorn
+pdfkit
+psycopg2
+requests
