@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Customers</h1>
+        <a href="/" class="btn btn-secondary mb-3">Back to Dashboard</a>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Company</th>
+                    <th>Date Added</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for customer in customers %}
+                <tr>
+                    <td>{{ customer.id }}</td>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>{{ customer.company }}</td>
+                    <td>{{ customer.date_added.strftime('%Y-%m-%d') }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_customer', customer_id=customer.id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="{{ url_for('delete_customer', customer_id=customer.id) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('add_customer') }}" class="btn btn-primary mt-3">Add Customer</a>
+    </div>
+</body>
+</html>
