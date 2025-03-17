@@ -1,8 +1,15 @@
+beautifulsoup4
 flask
 flask-bcrypt
 flask-login
 flask-sqlalchemy
+flask-testing
 gunicorn
 pdfkit
 psycopg2
+pytest
+pytest-cov
 requests
+robotframework
+robotframework-faker
+robotframework-requests
