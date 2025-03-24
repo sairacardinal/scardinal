@@ -11,8 +11,11 @@ from io import BytesIO
 # Initialize Flask application
 app = Flask(__name__)
 
+# Docker Database
+app.config.from_prefixed_env()
+
 # Preprod Database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:admin1234@localhost:5432/crm'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:admin@localhost:5432/crm'
 
 # Production Database
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://crm_4uxp_user:apQQwtlQnA9lxK3URcnsjaw01M77fAQF@dpg-cv25525ds78s73e5r200-a.oregon-postgres.render.com/crm_4uxp'
@@ -129,8 +132,11 @@ def export_csv():
 
     return send_file(byte_output, mimetype='text/csv', as_attachment=True, download_name='customers.csv')
 
-# Configure wkhtmltopdf for PDF export
+# Windows configuration wkhtmltopdf for PDF export
 # PDFKIT_CONFIG = pdfkit.configuration(wkhtmltopdf=r"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe")
+
+# Docker configuration wkhtmltopdf for PDF export
+PDFKIT_CONFIG = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
 
 # Route for exporting customer data as a styled PDF
 @app.route('/export/pdf')

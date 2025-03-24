@@ -6,25 +6,27 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="mt-5">Register</h2>
+        <h2 class="mt-5" id="heading-register">Register</h2>
+
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                    <div class="alert alert-{{ category }}" id="alert-{{ category }}">{{ message }}</div>
                 {% endfor %}
             {% endif %}
         {% endwith %}
-        <form method="POST">
+
+        <form method="POST" id="form-register">
             <div class="mb-3">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control" required>
+                <label for="input-username">Username</label>
+                <input type="text" name="username" class="form-control" id="input-username" required>
             </div>
             <div class="mb-3">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" required>
+                <label for="input-password">Password</label>
+                <input type="password" name="password" class="form-control" id="input-password" required>
             </div>
-            <button type="submit" class="btn btn-success">Register</button>
-            <a href="{{ url_for('login') }}" class="btn btn-link">Already have an account? Login</a>
+            <button type="submit" class="btn btn-success" id="btn-register">Register</button>
+            <a href="{{ url_for('login') }}" class="btn btn-link" id="link-login">Already have an account? Login</a>
         </form>
     </div>
 </body>

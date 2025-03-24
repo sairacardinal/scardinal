@@ -32,29 +32,34 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Company CRM Report</h1>
-        <p>Generated on: {{ now }}</p>
+    <div class="header" id="report-header">
+        <h1 id="report-title">Company CRM Report</h1>
+        <p id="report-generated-date">Generated on: {{ now }}</p>
     </div>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Company</th>
-            <th>Date Added</th>
-        </tr>
-        {% for customer in customers %}
-        <tr>
-            <td>{{ customer.id }}</td>
-            <td>{{ customer.name }}</td>
-            <td>{{ customer.email }}</td>
-            <td>{{ customer.phone }}</td>
-            <td>{{ customer.company }}</td>
-            <td>{{ customer.date_added.strftime('%Y-%m-%d') }}</td>
-        </tr>
-        {% endfor %}
+
+    <table id="table-customer-report">
+        <thead>
+            <tr>
+                <th id="th-id">ID</th>
+                <th id="th-name">Name</th>
+                <th id="th-email">Email</th>
+                <th id="th-phone">Phone</th>
+                <th id="th-company">Company</th>
+                <th id="th-date-added">Date Added</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+            <tr id="report-row-{{ customer.id }}">
+                <td>{{ customer.id }}</td>
+                <td>{{ customer.name }}</td>
+                <td>{{ customer.email }}</td>
+                <td>{{ customer.phone }}</td>
+                <td>{{ customer.company }}</td>
+                <td>{{ customer.date_added.strftime('%Y-%m-%d') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 </body>
 </html>

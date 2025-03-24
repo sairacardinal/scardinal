@@ -6,42 +6,50 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-4">CRM Reports</h1>
-        <p><strong>Total Customers:</strong> {{ total_customers }}</p>
+        <h1 class="mt-4" id="heading-crm-reports">CRM Reports</h1>
+        <p><strong>Total Customers:</strong> <span id="total-customers">{{ total_customers }}</span></p>
 
-        <h2>Customers by Company</h2>
-        <table class="table">
-            <tr>
-                <th>Company</th>
-                <th>Number of Customers</th>
-            </tr>
-            {% for company, count in companies %}
-            <tr>
-                <td>{{ company }}</td>
-                <td>{{ count }}</td>
-            </tr>
-            {% endfor %}
+        <h2 id="heading-by-company">Customers by Company</h2>
+        <table class="table" id="table-customers-by-company">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Number of Customers</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for company, count in companies %}
+                <tr id="row-company-{{ loop.index }}">
+                    <td>{{ company }}</td>
+                    <td>{{ count }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
 
-        <h2>Recently Added Customers</h2>
-        <table class="table">
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Company</th>
-                <th>Date Added</th>
-            </tr>
-            {% for customer in recent_customers %}
-            <tr>
-                <td>{{ customer.name }}</td>
-                <td>{{ customer.email }}</td>
-                <td>{{ customer.company }}</td>
-                <td>{{ customer.date_added }}</td>
-            </tr>
-            {% endfor %}
+        <h2 id="heading-recent-customers">Recently Added Customers</h2>
+        <table class="table" id="table-recent-customers">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Company</th>
+                    <th>Date Added</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for customer in recent_customers %}
+                <tr id="row-recent-{{ loop.index }}">
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.company }}</td>
+                    <td>{{ customer.date_added }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
 
-        <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Dashboard</a>
+        <a href="{{ url_for('index') }}" class="btn btn-primary" id="btn-back-dashboard">Back to Dashboard</a>
     </div>
 </body>
 </html>
