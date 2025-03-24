@@ -6,25 +6,25 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-4">Edit Customer</h1>
-        <form method="POST">
+        <h1 class="mt-4" id="heading-edit-customer">Edit Customer</h1>
+        <form method="POST" id="form-edit-customer">
             <div class="mb-3">
-                <label>Name</label>
-                <input type="text" name="name" class="form-control" value="{{ customer.name }}" required>
+                <label for="input-name">Name</label>
+                <input type="text" name="name" class="form-control" id="input-name" value="{{ customer.name }}" required>
             </div>
             <div class="mb-3">
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" value="{{ customer.email }}" required>
+                <label for="input-email">Email</label>
+                <input type="email" name="email" class="form-control" id="input-email" value="{{ customer.email }}" required>
             </div>
             <div class="mb-3">
-                <label>Phone</label>
-                <input type="text" name="phone" class="form-control" value="{{ customer.phone }}" required>
+                <label for="input-phone">Phone</label>
+                <input type="text" name="phone" class="form-control" id="input-phone" value="{{ customer.phone }}" required>
             </div>
             <div class="mb-3">
-                <label>Company</label>
-                <input type="text" name="company" class="form-control" value="{{ customer.company }}" required>
+                <label for="input-company">Company</label>
+                <input type="text" name="company" class="form-control" id="input-company" value="{{ customer.company }}" required>
             </div>
-            <button type="submit" class="btn btn-warning">Update</button>
+            <button type="submit" class="btn btn-warning" id="btn-update-customer">Update</button>
         </form>
     </div>
 </body>

@@ -81,7 +81,7 @@ The customer data is created
 
 All customer IDs
     ${response}=    GET On Session    crm    ${CUSTOMERS_ENDPOINT}
-    Should Contain    ${response.text}    <table class="table table-bordered">  # Ensure Customers table exists
+    Should Contain    ${response.text}    <table class="table table-bordered" id="table-customers">  # Ensure Customers table exists
 
     ${customer_ids}=    Get Customer IDs From HTML    ${response.text}
     Log    Extracted Customer IDs: ${customer_ids}

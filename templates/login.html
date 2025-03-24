@@ -6,25 +6,27 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="mt-5">Login to CRM</h2>
+        <h2 class="mt-5" id="heading-login">Login to CRM</h2>
+
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                    <div class="alert alert-{{ category }}" id="alert-{{ category }}">{{ message }}</div>
                 {% endfor %}
             {% endif %}
         {% endwith %}
-        <form method="POST">
+
+        <form method="POST" id="form-login">
             <div class="mb-3">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control" required>
+                <label for="input-username">Username</label>
+                <input type="text" id="input-username" name="username" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" required>
+                <label for="input-password">Password</label>
+                <input type="password" id="input-password" name="password" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-            <a href="{{ url_for('register') }}" class="btn btn-link">Register</a>
+            <button type="submit" class="btn btn-primary" id="btn-login">Login</button>
+            <a href="{{ url_for('register') }}" class="btn btn-link" id="link-register">Register</a>
         </form>
     </div>
 </body>

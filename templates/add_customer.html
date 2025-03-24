@@ -6,25 +6,25 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-4">Add Customer</h1>
-        <form method="POST">
+        <h1 class="mt-4" id="heading-add-customer">Add Customer</h1>
+        <form method="POST" id="form-add-customer">
             <div class="mb-3">
-                <label>Name</label>
-                <input type="text" name="name" class="form-control" required>
+                <label for="input-name">Name</label>
+                <input type="text" name="name" class="form-control" id="input-name" required>
             </div>
             <div class="mb-3">
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" required>
+                <label for="input-email">Email</label>
+                <input type="email" name="email" class="form-control" id="input-email" required>
             </div>
             <div class="mb-3">
-                <label>Phone</label>
-                <input type="text" name="phone" class="form-control" required>
+                <label for="input-phone">Phone</label>
+                <input type="text" name="phone" class="form-control" id="input-phone" required>
             </div>
             <div class="mb-3">
-                <label>Company</label>
-                <input type="text" name="company" class="form-control" required>
+                <label for="input-company">Company</label>
+                <input type="text" name="company" class="form-control" id="input-company" required>
             </div>
-            <button type="submit" class="btn btn-success">Add</button>
+            <button type="submit" class="btn btn-success" id="btn-submit-customer">Add</button>
         </form>
     </div>
 </body>
